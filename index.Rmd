@@ -18,6 +18,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # {.tabset}
 
+## About
+
+```
+![](path/to/picture.png)(https://www.coursera.org/) ![](path/to/picture2.png)
+```
+
 ## Teaching
 
 - Linear Algebra
@@ -25,8 +31,3 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Research
 
-## About
-
-```
-![](path/to/picture.png)(https://www.coursera.org/) ![](path/to/picture2.png)
-```
