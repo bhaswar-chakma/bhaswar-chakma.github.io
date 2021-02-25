@@ -1,49 +1,3 @@
----
-title: "Bhaswar Chakma"
-output:
-  html_document:
-    theme: united
-    highlight: tango
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,  message = FALSE, warning = FALSE)
-```
-<script>
-   $(document).ready(function() {
-     $head = $('#header');
-     $head.prepend('<img src=\"pic.jpg\" style=\"float: right;width: 100px;\"/>')
-   });
-</script>
-
-# {.tabset}
-
-## About
-
-Born and raised in [Chittagong Hill Tracts](https://en.wikipedia.org/wiki/Chittagong_Hill_Tracts), I have been living here in Portugal since 2014. I have an undergraduate degree in economics from [Monash university](https://en.wikipedia.org/wiki/Monash_University) and a master degree in statistics from [University of Évora](https://en.wikipedia.org/wiki/University_of_%C3%89vora).
-
-Currently I am working as research fellow at University of Évora. I also teach part-time at [Católica Lisbon School of Business & Economics](https://en.wikipedia.org/wiki/Cat%C3%B3lica_Lisbon_School_of_Business_%26_Economics).
-
-In my spare time, I enjoy playing the guitar. I also enjoy spending time in [RStudio Community](https://community.rstudio.com/) and [Statalist](https://www.statalist.org/forums/forum/general-stata-discussion/general).
-
-Fun Fact: My last name -- [Chakma](https://en.wikipedia.org/wiki/Chakma_people) -- happens to be the name of the indigenous  community that I belong to.
-
-## CV
-
-Click [here](https://www.dropbox.com/s/d58j65cxk4d9u22/CV-Bhaswar-Chakma.pdf?dl=0).
-
-## Current Projects
-
-- Research: [Urban TB](https://www.uevora.pt/investigar/projetos?id=4068)
-
-- Teaching: [Busisess Research Methods at CLSBE](https://brmlab2021.netlify.app)
-
-
-## My Countries
-
-### {.tabset}
-
-```{r}
 library(dplyr)
 library(ggplot2)
 # Data
@@ -56,10 +10,6 @@ df_wdi <- WDI::WDI(country=c("PT", "BD"),
                      fdi_current_usd = "BX.KLT.DINV.CD.WD",
                      remit_current_usd = "BX.TRF.PWKR.CD.DT"),
          start=1990, end=2020)
-```
-
-#### GDP
-```{r gdp}
 
 # GDP
 df_wdi %>% 
@@ -79,10 +29,6 @@ df_wdi %>%
   labs(x = "Year", y = "%", title = "GDP growth (annual %)") +
   theme(legend.title = element_blank())
 
-```
-
-#### Population
-```{r}
 # Population
 df_wdi %>% 
   select(year, country, pop) %>% 
@@ -101,10 +47,6 @@ df_wdi %>%
   ggthemes::theme_economist() +
   labs(x = "Year", y = "%", title = "Population growth (annual %)") +
   theme(legend.title = element_blank())
-```
-
-#### FDI
-```{r}
 # FDI
 df_wdi %>% 
   select(year, country, fdi_current_usd) %>% 
@@ -123,5 +65,3 @@ df_wdi %>%
   ggthemes::theme_economist() +
   labs(x = "Year", y = "$ Billion", title = "Personal remittances, received (current US$)") +
   theme(legend.title = element_blank())
-```
-
