@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = FALSE,  message = FALSE, warning = FALSE, fig.width
 
 ## About
 
-Born and raised in [Chittagong Hill Tracts](https://en.wikipedia.org/wiki/Chittagong_Hill_Tracts), I have been living here in Portugal since 2014. I have an undergraduate degree in economics from [Monash university](https://en.wikipedia.org/wiki/Monash_University) and a master degree in statistics from [University of Évora](https://en.wikipedia.org/wiki/University_of_%C3%89vora).
-
-Currently I am working as research fellow at University of Évora. I also teach part-time at [Católica Lisbon School of Business & Economics](https://en.wikipedia.org/wiki/Cat%C3%B3lica_Lisbon_School_of_Business_%26_Economics).
-
-In my spare time, I enjoy playing the guitar. I also enjoy spending time in [RStudio Community](https://community.rstudio.com/) and [Statalist](https://www.statalist.org/forums/forum/general-stata-discussion/general).
-
+Born and raised in [Chittagong Hill Tracts, Bangladesh](https://en.wikipedia.org/wiki/Chittagong_Hill_Tracts), I have been living here in Portugal since 2014. I became a Portuguese citizen in April 2021.
+ 
 Fun Fact: My last name -- [Chakma](https://en.wikipedia.org/wiki/Chakma_people) -- happens to be the name of the indigenous  community that I belong to.
+
+You can reach me at <bhaswar.chakma@outlook.com>.
+
+
 
 ## CV
 
@@ -34,9 +34,9 @@ Click [here](https://www.dropbox.com/s/d58j65cxk4d9u22/CV-Bhaswar-Chakma.pdf?dl=
 
 ## Current Projects
 
-- Research: [Urban TB](https://www.uevora.pt/investigar/projetos?id=4068)
+- [DSE](https://bhaswar-chakma.github.io/dse/): This site keeps me abreast of Dhaka Stock Exchange.
 
-- Teaching: [Busisess Research Methods at CLSBE](https://brmlab2021.netlify.app)
+- [Business Research Methods at CLSBE](https://brmlab2021.netlify.app): I use this site for teaching.
 
 
 ## My Countries
