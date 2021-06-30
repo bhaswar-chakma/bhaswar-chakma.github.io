@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = FALSE,  message = FALSE, warning = FALSE, fig.width
 
 ## About
 
-Born and raised in [Chittagong Hill Tracts, Bangladesh](https://en.wikipedia.org/wiki/Chittagong_Hill_Tracts), I have been living here in Portugal since 2014. I became a Portuguese citizen in April 2021.
+Hi! I am Bhaswar Chakma. Born and raised in [Chittagong Hill Tracts, Bangladesh](https://en.wikipedia.org/wiki/Chittagong_Hill_Tracts), I have been living in Portugal since 2014. I became a Portuguese citizen in April 2021. Outside of work, I love to play the guitar. Here are some of my favorite songs: [Cliffs Of Dover](https://www.youtube.com/watch?v=aiRn3Zlw3Rw); [Always with Me, Always with you](https://www.youtube.com/watch?v=vxeYDEOXsqU); [Electric Gypsy](https://www.youtube.com/watch?v=JIl3V9SdNKY). Let me know if you need more suggestions!
  
 Fun Fact: My last name -- [Chakma](https://en.wikipedia.org/wiki/Chakma_people) -- happens to be the name of the indigenous  community that I belong to.
 
 You can reach me at <bhaswar.chakma@outlook.com>.
 
-
+*Last updated: `r lubridate::today()`*
 
 ## CV
 
@@ -219,4 +219,6 @@ df_wdi %>%
   labs(x = "Year", y = "$ Billion", title = "Personal remittances, received (current US$)") +
   theme(legend.title = element_blank())
 ```
+
+
 
