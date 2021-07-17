@@ -32,11 +32,14 @@ You can reach me at <bhaswar.chakma@outlook.com>.
 
 Click [here](https://www.dropbox.com/s/d58j65cxk4d9u22/CV-Bhaswar-Chakma.pdf?dl=0).
 
-## Current Projects
+## Personal Projects
 
-- [DSE](https://bhaswar-chakma.github.io/dse/): This site keeps me abreast of Dhaka Stock Exchange.
+- [toolbox](https://bhaswar-chakma.github.io/toolbox/): I am writing this "book" for future-me! This is kind of quick reference guide. It contains `Python`, `R`, and `SQL` topics. I am adding materials almost every day. Hope to add `Julia` someday!
 
-- [Business Research Methods at CLSBE](https://brmlab2021.netlify.app): I use this site for teaching.
+- [dse](https://bhaswar-chakma.github.io/dse/): This site is about Dhaka Stock Exchange, includes market stats and visualizations. I try to update this site almost every working day!
+
+- [brmlab2021](https://brmlab2021.netlify.app): I built this site for teaching, used this in Spring 2020/21 at CLSBE.
+
 
 
 ## My Countries
@@ -138,7 +141,7 @@ df_wdi %>%
   labs(x = "Year", y = "Age", title = "Life expectancy at birth, total (years)") +
   theme(legend.title = element_blank())
 
-# Life Expectency Female
+# Life Expectancy Female
 df_wdi %>% 
   ggplot(aes(x = year, y = life_exp_female, color = country)) +
   geom_line(size = 1.5) +
@@ -146,7 +149,7 @@ df_wdi %>%
   labs(x = "Year", y = "Age", title = "Life expectancy at birth, female (years)") +
   theme(legend.title = element_blank())
 
-# Life Expectency Male
+# Life Expectancy Male
 df_wdi %>% 
   ggplot(aes(x = year, y = life_exp_male, color = country)) +
   geom_line(size = 1.5) +
