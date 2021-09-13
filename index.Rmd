@@ -36,7 +36,7 @@ Click [here](https://www.dropbox.com/s/d58j65cxk4d9u22/CV-Bhaswar-Chakma.pdf?dl=
 
 - [toolbox](https://bhaswar-chakma.github.io/toolbox/): I am writing this "book" for future-me! This is kind of quick reference guide. It contains `Python`, `R`, and `SQL` topics. I am adding materials almost every day. Hope to add `Julia` someday!
 
-- [dse](https://bhaswar-chakma.github.io/dse/): This site is about Dhaka Stock Exchange, includes market stats and visualizations. I try to update this site almost every working day!
+- [dse](https://bhaswar-chakma.github.io/dse/): This site is about Dhaka Stock Exchange, includes market stats and visualizations. I try to update this site at the end of each trading day!
 
 - [brmlab2021](https://brmlab2021.netlify.app): I built this site for teaching, used this in Spring 2020/21 at CLSBE.
 
@@ -44,37 +44,21 @@ Click [here](https://www.dropbox.com/s/d58j65cxk4d9u22/CV-Bhaswar-Chakma.pdf?dl=
 
 ## My Countries
 
+I used [World Development Indicators (WDI)](https://databank.worldbank.org/source/world-development-indicators) data to generate the following plots. If you want to know the numbers, just take your cursor to the desired location. Enjoy!
+
 ### {.tabset}
 
 ```{r}
 library(dplyr)
 library(ggplot2)
-# Data
-# https://datatopics.worldbank.org/world-development-indicators/
-df_wdi <- WDI::WDI(country=c("PT", "BD"),
-         indicator=c(gdp_current_usd = "NY.GDP.MKTP.CD",
-                     gdp_growth = "NY.GDP.MKTP.KD.ZG",
-                     gdp_pcap_current_usd = "NY.GDP.PCAP.CD",
-                     gdp_pcap_growth = "NY.GDP.PCAP.KD.ZG",
-                     pop = "SP.POP.TOTL",
-                     pop_growth = "SP.POP.GROW",
-                     life_exp_total = "SP.DYN.LE00.IN",
-                     life_exp_male = "SP.DYN.LE00.MA.IN",
-                     life_exp_female = "SP.DYN.LE00.FE.IN",
-                     fdi_current_usd = "BX.KLT.DINV.CD.WD",
-                     remit_current_usd = "BX.TRF.PWKR.CD.DT",
-                     export_current_usd = "NE.EXP.GNFS.CD",
-                     export_growth = "NE.EXP.GNFS.KD.ZG",
-                     import_current_usd = "NE.IMP.GNFS.CD",
-                     import_growth = "NE.IMP.GNFS.KD.ZG"),
-         start=1990, end=2020)
+df_wdi <- readRDS("data/wdi-1990-2020.RDS")
 ```
 
 #### GDP
 ```{r gdp}
 
 # GDP
-df_wdi %>% 
+gdp <- df_wdi %>% 
   select(year, country, gdp_current_usd) %>% 
   mutate(gdp = gdp_current_usd/1e9) %>%
   ggplot(aes(x = year, y = gdp, color = country)) +
@@ -82,8 +66,10 @@ df_wdi %>%
   ggthemes::theme_economist() +
   labs(x = "Year", y = "$ Billion", title = "GDP (current US$)") +
   theme(legend.title = element_blank())
+
+
 # GDP Growth
-df_wdi %>% 
+gdp_growth <- df_wdi %>% 
   select(year, country, gdp_growth) %>% 
   ggplot(aes(x = year, y = gdp_growth, color = country)) +
   geom_line(size = 1.5) +
@@ -92,7 +78,7 @@ df_wdi %>%
   theme(legend.title = element_blank())
 
 # GDP Per Capita 
-df_wdi %>% 
+gdp_pc <- df_wdi %>% 
   select(year, country, gdp_pcap_current_usd) %>% 
   mutate(gdp_pcap = gdp_pcap_current_usd/1000) %>%
   ggplot(aes(x = year, y = gdp_pcap, color = country)) +
@@ -102,7 +88,7 @@ df_wdi %>%
   theme(legend.title = element_blank())
 
 # GDP Per Capita Growth
-df_wdi %>% 
+gdp_pc_growth <- df_wdi %>% 
   select(year, country, gdp_pcap_growth) %>% 
   ggplot(aes(x = year, y = gdp_pcap_growth, color = country)) +
   geom_line(size = 1.5) +
@@ -112,10 +98,26 @@ df_wdi %>%
 
 ```
 
+```{r}
+plotly::ggplotly(gdp)
+```
+
+```{r}
+plotly::ggplotly(gdp_growth)
+```
+
+```{r}
+plotly::ggplotly(gdp_pc)
+```
+
+```{r}
+plotly::ggplotly(gdp_pc_growth)
+```
+
 #### Population & Life Expectency
 ```{r}
 # Population
-df_wdi %>% 
+pop <- df_wdi %>% 
   select(year, country, pop) %>% 
   mutate(popm = pop/1e6) %>%
   ggplot(aes(x = year, y = popm, color = country)) +
@@ -125,72 +127,100 @@ df_wdi %>%
   theme(legend.title = element_blank())
 
 # Population Growth
-df_wdi %>% 
+pop_growth <- df_wdi %>% 
   select(year, country, pop_growth) %>% 
   ggplot(aes(x = year, y = pop_growth, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "%", title = "Population growth (annual %)") +
+  labs(x = "Year", y = "%",
+       title = "Population growth (annual %)") +
   theme(legend.title = element_blank())
 
-# Life Expectency Total
-df_wdi %>% 
+# Life Expectancy Total
+life_exp <- df_wdi %>% 
   ggplot(aes(x = year, y = life_exp_total, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "Age", title = "Life expectancy at birth, total (years)") +
+  labs(x = "Year", y = "Age",
+       title = "Life expectancy at birth, total (years)") +
   theme(legend.title = element_blank())
 
 # Life Expectancy Female
-df_wdi %>% 
+life_exp_female <- df_wdi %>% 
   ggplot(aes(x = year, y = life_exp_female, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "Age", title = "Life expectancy at birth, female (years)") +
+  labs(x = "Year", y = "Age",
+       title = "Life expectancy at birth, female (years)") +
   theme(legend.title = element_blank())
 
 # Life Expectancy Male
-df_wdi %>% 
+life_exp_male <- df_wdi %>% 
   ggplot(aes(x = year, y = life_exp_male, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "Age", title = "Life expectancy at birth, male (years)") +
+  labs(x = "Year", y = "Age",
+       title = "Life expectancy at birth, male (years)") +
   theme(legend.title = element_blank())
+```
+
+
+```{r}
+plotly::ggplotly(pop)
+```
+
+```{r}
+plotly::ggplotly(pop_growth)
+```
+
+```{r}
+plotly::ggplotly(life_exp)
+```
+
+```{r}
+plotly::ggplotly(life_exp_female)
+```
+
+```{r}
+plotly::ggplotly(life_exp_male)
 ```
 
 #### Trade
 
 ```{r trade}
 # Export 
-df_wdi %>% 
+export <- df_wdi %>% 
   select(year, country, export_current_usd) %>% 
   mutate(export = export_current_usd/1e9) %>%
   ggplot(aes(x = year, y = export, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "$ Billion", title = "Exports of goods and services (current US$)") +
+  labs(x = "Year", y = "$ Billion",
+       title = "Exports of goods and services (current US$)") +
   theme(legend.title = element_blank())
 
 # Export Growth
-df_wdi %>% 
+export_growth <- df_wdi %>% 
   ggplot(aes(x = year, y = export_growth, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "%", title = "Exports of goods and services (annual % growth)") +
+  labs(x = "Year", y = "%",
+       title = "Exports of goods and services (annual % growth)") +
   theme(legend.title = element_blank())
 
 # Import 
-df_wdi %>% 
+import <- df_wdi %>% 
   select(year, country, import_current_usd) %>% 
   mutate(import = import_current_usd/1e9) %>%
   ggplot(aes(x = year, y = import, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "$ Billion", title = "Imports of goods and services (current US$)") +
+  labs(x = "Year", y = "$ Billion",
+       title = "Imports of goods and services (current US$)") +
   theme(legend.title = element_blank())
 
 # Import Growth
-df_wdi %>% 
+import_growth <- df_wdi %>% 
   ggplot(aes(x = year, y = import_growth, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
@@ -199,29 +229,54 @@ df_wdi %>%
 
 ```
 
+```{r}
+plotly::ggplotly(export)
+```
+
+```{r}
+plotly::ggplotly(export_growth)
+```
+
+```{r}
+plotly::ggplotly(import)
+```
+
+```{r}
+plotly::ggplotly(import_growth)
+```
 
 
 #### FDI & Remittance
 ```{r}
 # FDI
-df_wdi %>% 
+fdi <- df_wdi %>% 
   select(year, country, fdi_current_usd) %>% 
   mutate(fdi = fdi_current_usd/1e9) %>%
   ggplot(aes(x = year, y = fdi, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "$ Billion", title = "Foreign direct investment, net inflows (BoP, current US$)") +
+  labs(x = "Year", y = "$ Billion",
+       title = "Foreign direct investment, net inflows (BoP, current US$)") +
   theme(legend.title = element_blank())
-# FDI
-df_wdi %>% 
+
+
+# Remittances
+remit <- df_wdi %>% 
   select(year, country, remit_current_usd) %>% 
   mutate(remit = remit_current_usd/1e9) %>%
   ggplot(aes(x = year, y = remit, color = country)) +
   geom_line(size = 1.5) +
   ggthemes::theme_economist() +
-  labs(x = "Year", y = "$ Billion", title = "Personal remittances, received (current US$)") +
+  labs(x = "Year", y = "$ Billion",
+       title = "Personal remittances, received (current US$)") +
   theme(legend.title = element_blank())
 ```
 
+```{r}
+plotly::ggplotly(fdi)
+```
 
+```{r}
+plotly::ggplotly(remit)
+```
 
