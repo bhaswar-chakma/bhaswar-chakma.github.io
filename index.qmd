@@ -1,0 +1,16 @@
+---
+format:
+  html:
+    theme: zephyr
+---
+Hello there! 👋
+
+I'm excited to share that I'm rebuilding and enhancing my GitHub page to provide an even better experience. Whether you're one of my students, a fellow developer, or a potential employer, I appreciate your interest in my work.
+
+While the virtual construction is underway, you can still explore my existing projects and contributions. If you have any urgent inquiries or want to connect, feel free to contact me at <bhaswar.chakma@outlook.com>.
+
+Thank you for your patience and understanding. I'm eagerly anticipating the moment I can unveil the upgraded GitHub page for you all!
+
+Best regards, 
+
+Bhaswar Chakma
