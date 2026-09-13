@@ -1,0 +1,22 @@
+project:
+  type: website
+
+website:
+  description: ""
+  site-url: https://bhaswar-chakma.github.io # you must change this appropriately for RSS feeds to work properly
+  title: ""
+  navbar:
+    right:
+      #- about
+      - icon: github
+        href: https://github.com/
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+
+editor: visual
+
