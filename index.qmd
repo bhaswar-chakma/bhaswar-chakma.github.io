@@ -1,42 +1,216 @@
 ---
 title: "Bhaswar Chakma"
+description: ""
 about:
   template: jolla
   image: profile1.jpeg
   links:
     - icon: github
-      text: Github
+      text: GitHub
       href: https://github.com/bhaswar-chakma
+format:
+  html:
+    theme: cosmo
+    embed-resources: true
+    toc: false
+    page-layout: full
+    smooth-scroll: true
+    link-external-newwindow: true
+    title-block-banner: false
 ---
 
+```{=html}
+<style>
+:root {
+  --accent: #315f72;
+  --accent-light: #eef6f8;
+  --text-soft: #5f6c72;
+  --border: #d9e3e6;
+}
+
+body {
+  color: #1f2933;
+  background: #fbfcfc;
+}
+
+.quarto-title-block .quarto-title-banner {
+  background: transparent;
+}
+
+main.content {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin-top: 2.2rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+  background: var(--accent-light);
+  border-left: 4px solid var(--accent);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.item {
+  margin-bottom: 1.2rem;
+}
+
+.item-title {
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.item-detail {
+  color: var(--text-soft);
+}
+
+.publication {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(31, 41, 51, 0.04);
+}
+
+.footer-note {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+</style>
+```
+
+::: intro
 Welcome to my page! I am Bhaswar Chakma. This site brings together information about my academic background, professional experience, research interests, and selected research work.
+:::
 
 ## Education
 
-ISCTE – Instituto Universitário de Lisboa  
-PhD in Economics | 2024 - present  
+::::: item
+::: item-title
+ISCTE – Instituto Universitário de Lisboa
+:::
 
-University of Évora  
-Master in Statistical Modelling and Data Analysis | 2014 - 2017  
+::: item-detail
+PhD in Economics \| 2024 - present
+:::
+:::::
 
-Monash University  
-Bachelor of Business and Commerce (Economics) | 2010 - 2012  
+::::: item
+::: item-title
+University of Évora
+:::
+
+::: item-detail
+Master in Statistical Modelling and Data Analysis \| 2014 - 2017
+:::
+:::::
+
+::::: item
+::: item-title
+Monash University
+:::
+
+::: item-detail
+Bachelor of Business and Commerce, Economics \| 2010 - 2012
+:::
+:::::
 
 ## Experience
 
-NielsenIQ | Data Scientist, Product Design & Enhancement | Oct 2025 - present  
+::::: item
+::: item-title
+NielsenIQ
+:::
 
-NielsenIQ | Analyst, Statistical Operations | May 2023 - Sep 2025  
+::: item-detail
+Data Scientist, Product Design & Enhancement \| Oct 2025 - present
+:::
+:::::
 
-NielsenIQ | Analyst, Input Validation | Oct 2021 - Apr 2023  
+::::: item
+::: item-title
+NielsenIQ
+:::
 
-Católica Lisbon School of Business & Economics | Teaching Assistant | Feb 2020 - Jul 2021  
+::: item-detail
+Analyst, Statistical Operations \| May 2023 - Sep 2025
+:::
+:::::
 
-University of Évora | Research Fellow | Feb 2020 - May 2021  
+::::: item
+::: item-title
+NielsenIQ
+:::
 
-IESE Business School, Universidad de Navarra | Collaborator | Nov 2019 - Mar 2020  
+::: item-detail
+Analyst, Input Validation \| Oct 2021 - Apr 2023
+:::
+:::::
 
-CUBE, Católica Lisbon School of Business & Economics | Research Fellow | Nov 2017 - Oct 2019  
+::::: item
+::: item-title
+Católica Lisbon School of Business & Economics
+:::
+
+::: item-detail
+Teaching Assistant \| Feb 2020 - Jul 2021
+:::
+:::::
+
+::::: item
+::: item-title
+University of Évora
+:::
+
+::: item-detail
+Research Fellow \| Feb 2020 - May 2021
+:::
+:::::
+
+::::: item
+::: item-title
+IESE Business School, Universidad de Navarra
+:::
+
+::: item-detail
+Collaborator \| Nov 2019 - Mar 2020
+:::
+:::::
+
+::::: item
+::: item-title
+CUBE, Católica Lisbon School of Business & Economics
+:::
+
+::: item-detail
+Research Fellow \| Nov 2017 - Oct 2019
+:::
+:::::
 
 ## Research Interests
 
@@ -44,7 +218,14 @@ Applied econometrics, macroeconomics, and machine learning.
 
 ## Publication
 
-Chakma, B., Gomes, D., Filipe, P. A., et al.  
-“A temporal analysis on patient and health service delays in pulmonary tuberculosis in Portugal: inter and intra-regional differences and in(equalities) between gender and age.”  
-*BMC Public Health*, 22, 1830, 2022.  
-[https://doi.org/10.1186/s12889-022-14216-3](https://doi.org/10.1186/s12889-022-14216-3)
+::: publication
+Chakma, B., Gomes, D., Filipe, P. A., et al.\
+“A temporal analysis on patient and health service delays in pulmonary tuberculosis in Portugal: inter and intra-regional differences and in(equalities) between gender and age.”\
+<em>BMC Public Health</em>, 22, 1830, 2022.
+
+<a href="https://doi.org/10.1186/s12889-022-14216-3">https://doi.org/10.1186/s12889-022-14216-3</a>
+:::
+
+::: footer-note
+© Bhaswar Chakma
+:::
