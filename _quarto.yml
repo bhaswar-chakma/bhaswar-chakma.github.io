@@ -9,7 +9,9 @@ website:
     right:
       #- about
       - icon: github
-        href: https://github.com/
+        href: https://github.com/bhaswar-chakma
+      - icon: envelope
+        href: mailto:bhaswar.chakma@outlook.com
 
 format:
   html:
